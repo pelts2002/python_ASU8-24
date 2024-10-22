@@ -1,6 +1,13 @@
 class DNASequence:
-    def __init__(self, dna_sequence):
-        self._dna_sequence = dna_sequence.replace("\n", "") #убираем пробелы и перевод строк
+    def __init__(self, dna_sequence: str):
+        """
+        Инициализация экземпляра с передачей строковой последовательности ДНК.
+        Проверяем, что введенная последовательность является строкой
+        """
+        if not isinstance(dna_sequence, str):
+            raise ValueError("Последовательность ДНК должна быть строкой.")
+        
+        self._dna_sequence = dna_sequence.replace("\n", "").replace(" ", "").upper()    #убираем пробелы и перевод строк
         self._compressed_sequence = self._compress()    #сжимаем последовательность при инициализации
     
     def _compress(self):    #приватный метод для сжатия ДНК
