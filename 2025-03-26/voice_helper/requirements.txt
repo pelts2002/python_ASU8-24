@@ -1,0 +1,7 @@
+numpy
+sounddevice
+wave
+faster_whisper
+processor
+wave
+pyaudio
